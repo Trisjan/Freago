@@ -744,6 +744,101 @@ export type TextWithImageSlice = prismic.SharedSlice<
 	TextWithImageSliceVariation
 >;
 
+/**
+ * Primary content in *ThreeGridLayout → Primary*
+ */
+export interface ThreeGridLayoutSliceDefaultPrimary {
+	/**
+	 * top left field in *ThreeGridLayout → Primary*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: three_grid_layout.primary.top_left
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	top_left: prismic.LinkField;
+
+	/**
+	 * top left text field in *ThreeGridLayout → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: three_grid_layout.primary.top_left_text
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	top_left_text: prismic.RichTextField;
+
+	/**
+	 * top right field in *ThreeGridLayout → Primary*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: three_grid_layout.primary.top_right
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	top_right: prismic.LinkField;
+
+	/**
+	 * top right text field in *ThreeGridLayout → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: three_grid_layout.primary.top_right_text
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	top_right_text: prismic.RichTextField;
+
+	/**
+	 * bottom field in *ThreeGridLayout → Primary*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: three_grid_layout.primary.bottom
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	bottom: prismic.LinkField;
+
+	/**
+	 * bottom text field in *ThreeGridLayout → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: three_grid_layout.primary.bottom_text
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	bottom_text: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ThreeGridLayout Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ThreeGridLayoutSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<ThreeGridLayoutSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *ThreeGridLayout*
+ */
+type ThreeGridLayoutSliceVariation = ThreeGridLayoutSliceDefault;
+
+/**
+ * ThreeGridLayout Shared Slice
+ *
+ * - **API ID**: `three_grid_layout`
+ * - **Description**: ThreeGridLayout
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ThreeGridLayoutSlice = prismic.SharedSlice<
+	'three_grid_layout',
+	ThreeGridLayoutSliceVariation
+>;
+
 declare module '@prismicio/client' {
 	interface CreateClient {
 		(
@@ -800,7 +895,11 @@ declare module '@prismicio/client' {
 			TextWithImageSliceWithButtonPrimary,
 			TextWithImageSliceVariation,
 			TextWithImageSliceDefault,
-			TextWithImageSliceWithButton
+			TextWithImageSliceWithButton,
+			ThreeGridLayoutSlice,
+			ThreeGridLayoutSliceDefaultPrimary,
+			ThreeGridLayoutSliceVariation,
+			ThreeGridLayoutSliceDefault
 		};
 	}
 }

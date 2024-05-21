@@ -7,6 +7,7 @@ import ImageCards from './ImageCards/index.svelte';
 import Quote from './Quote/index.svelte';
 import Text from './Text/index.svelte';
 import TextWithImage from './TextWithImage/index.svelte';
+import ThreeGridLayout from './ThreeGridLayout/index.svelte';
 
 export const components = {
 	bulletpoints: Bulletpoints,
@@ -15,5 +16,6 @@ export const components = {
 	image_cards: ImageCards,
 	quote: Quote,
 	text: Text,
-	text_with_image: TextWithImage
+	text_with_image: TextWithImage,
+	three_grid_layout: ThreeGridLayout
 };
