@@ -1,0 +1,33 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Contact us",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sit duis fugiat magna voluptate sit laboris est et tempor. Enim elit ullamco in dolor quis dolor qui. Dolor reprehenderit ex esse sit duis commodo commodo fugiat."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

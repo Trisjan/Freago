@@ -1,5 +1,5 @@
 <script>
-	import { PrismicLink, PrismicText } from '@prismicio/svelte';
+	import { PrismicLink, PrismicText, PrismicImage } from '@prismicio/svelte';
 
 	import Bounded from './Bounded.svelte';
 
@@ -11,9 +11,9 @@
 
 <Bounded tag="header" yPadding="sm">
 	<div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-3 leading-none">
-		<a href="/" class="text-xl font-semibold tracking-tight">
-			<PrismicText field={settings.data.siteTitle} />
-		</a>
+		<PrismicLink field={navigation.data.home_link} class="text-xl font-semibold tracking-tight">
+			<PrismicImage field={navigation.data.logo} width="200px" height="100%" />
+		</PrismicLink>
 		<nav>
 			<ul class="flex flex-wrap gap-6 md:gap-10">
 				{#each navigation.data?.links as item}
@@ -27,3 +27,12 @@
 		</nav>
 	</div>
 </Bounded>
+
+<style>
+	div {
+		position: fixed;
+		z-index: 1;
+		width: 100%;
+	}
+	
+</style>

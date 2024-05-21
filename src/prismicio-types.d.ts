@@ -34,6 +34,28 @@ export interface NavigationDocumentDataLinksItem {
  */
 interface NavigationDocumentData {
 	/**
+	 * Home link field in *Navigation*
+	 *
+	 * - **Field Type**: Link
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: navigation.home_link
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+	 */
+	home_link: prismic.LinkField;
+
+	/**
+	 * Logo field in *Navigation*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: navigation.logo
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	logo: prismic.ImageField<never>;
+
+	/**
 	 * Links field in *Navigation*
 	 *
 	 * - **Field Type**: Group
@@ -61,6 +83,8 @@ export type NavigationDocument<Lang extends string = string> = prismic.PrismicDo
 >;
 
 type PageDocumentDataSlicesSlice =
+	| ContactFormSlice
+	| ThreeGridLayoutSlice
 	| HeroSlice
 	| QuoteSlice
 	| TextSlice
@@ -241,6 +265,58 @@ type BulletpointsSliceVariation = BulletpointsSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type BulletpointsSlice = prismic.SharedSlice<'bulletpoints', BulletpointsSliceVariation>;
+
+/**
+ * Primary content in *ContactForm → Primary*
+ */
+export interface ContactFormSliceDefaultPrimary {
+	/**
+	 * Title field in *ContactForm → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: contact_form.primary.title
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	title: prismic.RichTextField;
+
+	/**
+	 * Description field in *ContactForm → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: contact_form.primary.description
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ContactForm Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactFormSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<ContactFormSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *ContactForm*
+ */
+type ContactFormSliceVariation = ContactFormSliceDefault;
+
+/**
+ * ContactForm Shared Slice
+ *
+ * - **API ID**: `contact_form`
+ * - **Description**: ContactForm
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactFormSlice = prismic.SharedSlice<'contact_form', ContactFormSliceVariation>;
 
 /**
  * Primary content in *Hero → Primary*
@@ -863,6 +939,10 @@ declare module '@prismicio/client' {
 			BulletpointsSliceDefaultItem,
 			BulletpointsSliceVariation,
 			BulletpointsSliceDefault,
+			ContactFormSlice,
+			ContactFormSliceDefaultPrimary,
+			ContactFormSliceVariation,
+			ContactFormSliceDefault,
 			HeroSlice,
 			HeroSliceDefaultPrimary,
 			HeroSliceHeroDefaultPrimary,
