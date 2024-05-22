@@ -4,7 +4,6 @@
 	import Bounded from './Bounded.svelte';
 
 	/** @type {import("@prismicio/client").Content.SettingsDocument} */
-	export let settings;
 	/** @type {import("@prismicio/client").Content.NavigationDocument} */
 	export let navigation;
 </script>
