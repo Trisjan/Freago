@@ -360,7 +360,7 @@ export interface HeroSliceDefaultPrimary {
 	 * - **API ID Path**: hero.primary.backgroundImage
 	 * - **Documentation**: https://prismic.io/docs/field#image
 	 */
-	backgroundImage: prismic.ImageField<never>;
+	backgroundImage: prismic.ImageField<'tablet portrait' | 'phone' | 'tablet landscape'>;
 }
 
 /**
@@ -440,7 +440,7 @@ export interface ImageSliceDefaultPrimary {
 	 * - **API ID Path**: image.primary.image
 	 * - **Documentation**: https://prismic.io/docs/field#image
 	 */
-	image: prismic.ImageField<never>;
+	image: prismic.ImageField<'tablet' | 'phone'>;
 }
 
 /**

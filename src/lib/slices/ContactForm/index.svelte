@@ -27,38 +27,38 @@
 	}
 </script>
 
-<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
+<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation} class="main">
 	<PrismicRichText field={slice.primary.title} />
 	<PrismicRichText field={slice.primary.description} />
 	{#if formFeedback}
-		<div class="popup">
-			<div class="popup-content">
+		<section class="popup">
+			<article class="popup-content">
 				<p>{formFeedback}</p>
 				<button on:click={closePopup}>Sluiten</button>
-			</div>
-		</div>
+			</article>
+		</section>		
 	{/if}
-	<form method="POST" action="/" on:submit|preventDefault={handleSubmit} use:enhance>
+	<form method="POST" action="/" on:submit={handleSubmit} use:enhance>
 		<input type="hidden" name="access_key" value="4d59ea0f-13b8-4119-b6b8-b5cb5c38e663">
-		<div class="group">
+		<section class="group">
 			<label for="email">Email</label>
 			<input required type="email" id="email" name="email" />
-		</div>
-		<div class="group">
+		</section>
+		<section class="group">
 			<label for="message">Message</label>
-			<textarea name="message" id="message" minlength="1" maxlength="1000" />
-		</div>
-		<div class="group">
+			<input required type="text" name="message" id="message" minlength="4" maxlength="500" />
+		</section>
+		<section class="group">
 			<button class:submitted class:loading disabled={submitted}>
-				{$page.form?.success ? 'Thank you ✨' : loading ? 'Loading' : 'Submit'}
+				{loading ? 'Loading' : 'Submit'}
 			</button>
-		</div>
+		</section>
 	</form>
 </section>
 
 <style>
 	/* Je bestaande stijlregels */
-	section {
+	.main {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -110,6 +110,17 @@
 		box-shadow: 5px 5px 5px #000;
 	}
 
+	#email:invalid,
+	#message:invalid {
+		outline: #ff0000 solid 2px;
+	}
+
+	#email:valid,
+	#message:valid {
+		outline: #00ff15 solid 2px;
+	}
+
+
 	label {
 		display: block;
 		margin-bottom: 2rem;
@@ -120,8 +131,7 @@
 		font-weight: bold;
 	}
 
-	input,
-	textarea {
+	input {
 		display: block;
 		width: 100%;
 		resize: none;
@@ -162,11 +172,11 @@
 	}
 
 	@media (min-width: 768px) {
-		section {
+		.main {
 			margin: 0 3rem;
 		}
 
-		section > :global(h1) {
+		.main > :global(h1) {
 			justify-content: start;
 		}
 	}

@@ -30,28 +30,32 @@
         align-items: center;
         transition: 0.4s ease-in;
         text-decoration: none;
-		color: #680686;
+		color: var(--primary-color);
 		font-weight: bold;
 		font-size: 2rem;
     }
 
+	.grid > :global(a):focus {
+		outline: 0.5rem solid #ff0000;
+	}
+
 	.grid > :global(a):nth-of-type(1) {
-		border-bottom: #680686 solid 1px;
+		border-bottom: var(--primary-color) solid 1px;
 	}
 
 	.grid > :global(a):nth-of-type(2) {
-		border-top: #680686 solid 1px;
-		border-bottom: #680686 solid 1px;
+		border-top: var(--primary-color) solid 1px;
+		border-bottom: var(--primary-color) solid 1px;
 	}
 
 	.grid > :global(a):last-child {
-		border-top: #680686 solid 1px;
+		border-top: var(--primary-color) solid 1px;
 	}
 
     .grid > :global(a):hover {
 		font-size: 2.1rem;
 		color: #fff;
-		background-color: #680686;
+		background-color: var(--primary-color);
     }
 
     @media (min-width: 768px) {
@@ -67,18 +71,18 @@
         }
 
 		.grid > :global(a):nth-of-type(1) {
-			border-right: #680686 solid 1px;
-			border-bottom: #680686 solid 1px;
+			border-right: var(--primary-color) solid 1px;
+			border-bottom: var(--primary-color) solid 1px;
 		}
 
 		.grid > :global(a):nth-of-type(2) {
 			border-top: none;
-			border-left: #680686 solid 1px;
-			border-bottom: #680686 solid 1px;
+			border-left: var(--primary-color) solid 1px;
+			border-bottom: var(--primary-color) solid 1px;
 		}
 
 		.grid > :global(a):last-child {
-			border-top: #680686 solid 1px;
+			border-top: var(--primary-color) solid 1px;
 		}
 
         :global(a):nth-of-type(1) {

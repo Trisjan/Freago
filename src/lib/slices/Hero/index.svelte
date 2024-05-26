@@ -17,6 +17,7 @@
 	data-slice-variation={slice.variation}
 >
 	{#if prismic.isFilled.image(slice.primary.backgroundImage)}
+	
 		<PrismicImage
 			field={slice.primary.backgroundImage}
 			alt=""

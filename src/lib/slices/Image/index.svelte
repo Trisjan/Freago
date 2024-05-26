@@ -9,6 +9,7 @@
 	export let slice;
 	/** @type {number} */
 	export let index;
+	console.log(slice.primary.image);
 </script>
 
 <Bounded

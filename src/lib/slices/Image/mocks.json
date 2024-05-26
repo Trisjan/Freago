@@ -7,22 +7,61 @@
 				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
-					"url": "https://images.unsplash.com/photo-1587653915936-5623ea0b949a",
-					"width": 4000,
-					"height": 4000
+					"url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab",
+					"width": 12288,
+					"height": 16384
 				},
-				"url": "https://images.unsplash.com/photo-1587653915936-5623ea0b949a",
-				"width": 4000,
-				"height": 4000,
+				"url": "https://images.unsplash.com/photo-1587613865763-4b8b0d19e8ab?rect=1%2C0%2C12286%2C16384&w=1280&h=1707",
+				"width": 1280,
+				"height": 1707,
 				"edit": {
 					"zoom": 1,
 					"crop": {
-						"x": 0,
+						"x": 1,
 						"y": 0
 					},
 					"background": "transparent"
 				},
-				"thumbnails": {}
+				"thumbnails": {
+					"tablet": {
+						"origin": {
+							"id": "tablet",
+							"url": "https://images.unsplash.com/photo-1544731612-de7f96afe55f",
+							"width": 6000,
+							"height": 4000
+						},
+						"url": "https://images.unsplash.com/photo-1544731612-de7f96afe55f?rect=0%2C0%2C6000%2C4000&w=990&h=660",
+						"width": 990,
+						"height": 660,
+						"edit": {
+							"zoom": 1,
+							"crop": {
+								"x": 0,
+								"y": 0
+							},
+							"background": "transparent"
+						}
+					},
+					"phone": {
+						"origin": {
+							"id": "phone",
+							"url": "https://images.unsplash.com/photo-1587653915936-5623ea0b949a",
+							"width": 4000,
+							"height": 4000
+						},
+						"url": "https://images.unsplash.com/photo-1587653915936-5623ea0b949a?rect=0%2C0%2C4000%2C4000&w=768&h=768",
+						"width": 768,
+						"height": 768,
+						"edit": {
+							"zoom": 1,
+							"crop": {
+								"x": 0,
+								"y": 0
+							},
+							"background": "transparent"
+						}
+					}
+				}
 			}
 		},
 		"items": [
@@ -37,7 +76,6 @@
 		"variation": "banner",
 		"primary": {
 			"image": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1494173853739-c21f58b16055",
@@ -55,6 +93,9 @@
 					},
 					"background": "transparent"
 				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			}
 		},

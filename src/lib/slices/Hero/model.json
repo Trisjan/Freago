@@ -40,7 +40,23 @@
           "config": {
             "label": "Background Image",
             "constraint": {},
-            "thumbnails": []
+            "thumbnails": [
+              {
+                "name": "tablet portrait",
+                "width": 780,
+                "height": null
+              },
+              {
+                "name": "phone",
+                "width": 480,
+                "height": null
+              },
+              {
+                "name": "tablet landscape",
+                "width": 992,
+                "height": null
+              }
+            ]
           }
         }
       },

@@ -1,0 +1,53 @@
+:root {
+    --transition-duration: 0.3s;
+    --primary-color: #680686;
+    --primary-color-light: #9d4edd;
+    --primary-color-dark: #3b003b;
+    --secondary-color: #ff6f61;
+    --secondary-color-light: #ff9e9d;
+    --secondary-color-dark: #c53d3b;
+    --background-color: #f5f5f5;
+    --text-color: #333;
+    --text-color-light: #666;
+    --text-color-dark: #000;
+    --primary-font-family: "Poppins", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--primary-font-family);
+}
+
+@font-face {
+    font-family: "Poppins-Black";
+    src: local("Poppins Black"), local("Poppins-Black"), 
+        url("/fonts/static/fonts/Poppins-Black.ttf");
+}
+
+@font-face {
+    font-family: "Poppins-Regular";
+    src: local("Poppins Regular"), local("Poppins-Regular"), 
+        url("/fonts/static/fonts/Poppins-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Poppins-Medium";
+    src: local("Poppins Medium"), local("Poppins-Medium"), 
+        url("/fonts/static/fonts/Poppins-Medium.ttf");
+}
+
+@font-face {
+    font-family: "Poppins-Bold";
+    src: local("Poppins Bold"), local("Poppins-Bold"), 
+        url("/fonts/static/fonts/Poppins-Bold.ttf");
+}
+
+@media (prefers-reduced-motion) {
+	::view-transition-group(*),
+	::view-transition-old(*),
+	::view-transition-new(*) {
+		animation: none !important;
+	}
+}

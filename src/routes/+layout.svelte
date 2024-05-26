@@ -5,6 +5,17 @@
 	import { page } from '$app/stores';
 	import { repositoryName } from '$lib/prismicio';
 	import Header from '$lib/components/Header.svelte';
+	import { onNavigate } from '$app/navigation';
+
+	onNavigate(function(navigation) {
+        if (!document.startViewTransition) return;
+        return new Promise(function(resolve) {
+            document.startViewTransition(function() {
+                resolve();
+                navigation.complete;
+            });
+        });
+    });
 
 	export let data;
 </script>
