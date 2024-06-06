@@ -1,10 +1,10 @@
 // ATOMIC DESIGN IMPORTS
 
 // ATOMS
-export { default as Logo } from './atoms/Logo.svelte'
+export { default as Hamburger } from './atoms/Hamburger.svg'
+export { default as HamburgerWhite } from './atoms/hamburger_white.svg'
 
 // MOLECULES
 
 
 // ORGANISMS
-export { default as Nav } from './organisms/Nav.svelte'

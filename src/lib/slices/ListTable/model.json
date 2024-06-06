@@ -1,0 +1,95 @@
+{
+  "id": "list_table",
+  "type": "SharedSlice",
+  "name": "ListTable",
+  "description": "ListTable",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "list_item": {
+          "type": "Group",
+          "config": {
+            "label": "List item",
+            "repeat": true,
+            "fields": {
+              "title": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Title",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "heading1"
+                }
+              },
+              "stad": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Stad",
+                  "placeholder": "Almere",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              },
+              "uurloon": {
+                "type": "Number",
+                "config": {
+                  "label": "uurloon",
+                  "placeholder": "€15,00"
+                }
+              },
+              "functie": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Functie",
+                  "placeholder": "Schoonmaker",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              },
+              "description": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Description",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              },
+              "website_link": {
+                "type": "Link",
+                "config": {
+                  "label": "website link",
+                  "placeholder": "",
+                  "select": null
+                }
+              },
+              "page_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Page link",
+                  "placeholder": "",
+                  "select": null
+                }
+              },
+              "image_logo": {
+                "type": "Image",
+                "config": {
+                  "label": "Image logo",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

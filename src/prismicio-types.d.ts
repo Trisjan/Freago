@@ -4,6 +4,70 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type DetailpageDocumentDataSlicesSlice = TextWithImageSlice | TextSlice | HeroSlice;
+
+/**
+ * Content for Detailpage documents
+ */
+interface DetailpageDocumentData {
+	/**
+	 * Slice Zone field in *Detailpage*
+	 *
+	 * - **Field Type**: Slice Zone
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: detailpage.slices[]
+	 * - **Tab**: Main
+	 * - **Documentation**: https://prismic.io/docs/field#slices
+	 */
+	slices: prismic.SliceZone<DetailpageDocumentDataSlicesSlice> /**
+	 * Meta Description field in *Detailpage*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A brief summary of the page
+	 * - **API ID Path**: detailpage.meta_description
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */;
+	meta_description: prismic.KeyTextField;
+
+	/**
+	 * Meta Image field in *Detailpage*
+	 *
+	 * - **Field Type**: Image
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: detailpage.meta_image
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#image
+	 */
+	meta_image: prismic.ImageField<never>;
+
+	/**
+	 * Meta Title field in *Detailpage*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: A title of the page used for social media and search engines
+	 * - **API ID Path**: detailpage.meta_title
+	 * - **Tab**: SEO & Metadata
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Detailpage document from Prismic
+ *
+ * - **API ID**: `detailpage`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type DetailpageDocument<Lang extends string = string> = prismic.PrismicDocumentWithUID<
+	Simplify<DetailpageDocumentData>,
+	'detailpage',
+	Lang
+>;
+
 /**
  * Item in *Navigation → Links*
  */
@@ -83,6 +147,8 @@ export type NavigationDocument<Lang extends string = string> = prismic.PrismicDo
 >;
 
 type PageDocumentDataSlicesSlice =
+	| HeroTextSlice
+	| ListTableSlice
 	| ContactFormSlice
 	| ThreeGridLayoutSlice
 	| HeroSlice
@@ -207,7 +273,11 @@ export type SettingsDocument<Lang extends string = string> = prismic.PrismicDocu
 	Lang
 >;
 
-export type AllDocumentTypes = NavigationDocument | PageDocument | SettingsDocument;
+export type AllDocumentTypes =
+	| DetailpageDocument
+	| NavigationDocument
+	| PageDocument
+	| SettingsDocument;
 
 /**
  * Primary content in *Bulletpoints → Primary*
@@ -429,6 +499,58 @@ type HeroSliceVariation = HeroSliceDefault | HeroSliceHeroDefault;
 export type HeroSlice = prismic.SharedSlice<'hero', HeroSliceVariation>;
 
 /**
+ * Primary content in *HeroText → Primary*
+ */
+export interface HeroTextSliceDefaultPrimary {
+	/**
+	 * Title field in *HeroText → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero_text.primary.title
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	title: prismic.RichTextField;
+
+	/**
+	 * Description field in *HeroText → Primary*
+	 *
+	 * - **Field Type**: Rich Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero_text.primary.description
+	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+	 */
+	description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for HeroText Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroTextSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<HeroTextSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *HeroText*
+ */
+type HeroTextSliceVariation = HeroTextSliceDefault;
+
+/**
+ * HeroText Shared Slice
+ *
+ * - **API ID**: `hero_text`
+ * - **Description**: HeroText
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroTextSlice = prismic.SharedSlice<'hero_text', HeroTextSliceVariation>;
+
+/**
  * Primary content in *Image → Primary*
  */
 export interface ImageSliceDefaultPrimary {
@@ -584,6 +706,48 @@ type ImageCardsSliceVariation = ImageCardsSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type ImageCardsSlice = prismic.SharedSlice<'image_cards', ImageCardsSliceVariation>;
+
+/**
+ * Primary content in *ListTable → Primary*
+ */
+export interface ListTableSliceDefaultPrimary {
+	/**
+	 * List item field in *ListTable → Primary*
+	 *
+	 * - **Field Type**: Group
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: list_table.primary.list_item[]
+	 * - **Documentation**: https://prismic.io/docs/field#group
+	 */
+	list_item: prismic.GroupField<Simplify<ListTableDocumentDataListItemItem>>;
+}
+
+/**
+ * Default variation for ListTable Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ListTableSliceDefault = prismic.SharedSliceVariation<
+	'default',
+	Simplify<ListTableSliceDefaultPrimary>,
+	never
+>;
+
+/**
+ * Slice variation for *ListTable*
+ */
+type ListTableSliceVariation = ListTableSliceDefault;
+
+/**
+ * ListTable Shared Slice
+ *
+ * - **API ID**: `list_table`
+ * - **Description**: ListTable
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ListTableSlice = prismic.SharedSlice<'list_table', ListTableSliceVariation>;
 
 /**
  * Primary content in *Quote → Primary*
@@ -925,6 +1089,9 @@ declare module '@prismicio/client' {
 
 	namespace Content {
 		export type {
+			DetailpageDocument,
+			DetailpageDocumentData,
+			DetailpageDocumentDataSlicesSlice,
 			NavigationDocument,
 			NavigationDocumentData,
 			NavigationDocumentDataLinksItem,
@@ -949,6 +1116,10 @@ declare module '@prismicio/client' {
 			HeroSliceVariation,
 			HeroSliceDefault,
 			HeroSliceHeroDefault,
+			HeroTextSlice,
+			HeroTextSliceDefaultPrimary,
+			HeroTextSliceVariation,
+			HeroTextSliceDefault,
 			ImageSlice,
 			ImageSliceDefaultPrimary,
 			ImageSliceBannerPrimary,
@@ -960,6 +1131,11 @@ declare module '@prismicio/client' {
 			ImageCardsSliceDefaultItem,
 			ImageCardsSliceVariation,
 			ImageCardsSliceDefault,
+			ListTableSlice,
+			ListTableDocumentDataListItemItem,
+			ListTableSliceDefaultPrimary,
+			ListTableSliceVariation,
+			ListTableSliceDefault,
 			QuoteSlice,
 			QuoteSliceDefaultPrimary,
 			QuoteSliceVariation,

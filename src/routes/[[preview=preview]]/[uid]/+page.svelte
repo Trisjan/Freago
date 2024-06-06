@@ -7,3 +7,9 @@
 </script>
 
 <SliceZone slices={data.page.data.slices} {components} />
+
+<style>
+	:global(html) {
+		background-color: #F2F2F2;
+	}
+</style>

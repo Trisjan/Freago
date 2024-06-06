@@ -39,7 +39,7 @@
 		</section>		
 	{/if}
 	<form method="POST" action="/" on:submit={handleSubmit} use:enhance>
-		<input type="hidden" name="access_key" value="4d59ea0f-13b8-4119-b6b8-b5cb5c38e663">
+		<!-- <input type="hidden" name="access_key" value="4d59ea0f-13b8-4119-b6b8-b5cb5c38e663"> -->
 		<section class="group">
 			<label for="email">Email</label>
 			<input required type="email" id="email" name="email" />
@@ -61,9 +61,14 @@
 	.main {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
+		/* align-items: center; */
 		gap: 3rem;
-		margin: 0 1rem;
+		margin: 0 10vw;
+	}
+
+	section > :global(h1) {
+		font-size: 2.5rem;
+		font-weight: bold;
 	}
 
 	.popup {
@@ -89,14 +94,14 @@
 		margin-top: 10px;
 		padding: 8px 16px;
 		border-radius: 4px;
-		background-color: #468686;
+		background-color: var(--primary-color-light);
 		color: #fff;
 		border: none;
 		cursor: pointer;
 	}
 
 	.popup button:hover {
-		background-color: #336666;
+		background-color: hotpink;
 	}
 
 	form {
@@ -104,10 +109,19 @@
 		flex-direction: column;
 		gap: 3rem;
 		width: 100%;
-		background: #468686;
+		background: var(--primary-color-light);
 		padding: 9px 10px 8px;
 		border-radius: 1rem;
 		box-shadow: 5px 5px 5px #000;
+	}
+
+	form label {
+		font-weight: bold;
+		color: white;
+	}
+
+	form button {
+		color: #fff;
 	}
 
 	#email:invalid,
@@ -145,7 +159,6 @@
 		display: block;
 		background: #5f5f5f;
 		box-shadow: #000;
-		transition: box-shadow color 1s #00ff15, color 1s;
 	}
 
 	button:hover {
@@ -173,7 +186,7 @@
 
 	@media (min-width: 768px) {
 		.main {
-			margin: 0 3rem;
+			margin: 0 10vw;
 		}
 
 		.main > :global(h1) {

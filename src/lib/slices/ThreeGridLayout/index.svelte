@@ -21,6 +21,7 @@
 		display: flex;
         flex-direction: column;
         overflow: hidden;
+		margin-top: -2rem;
     }
     .grid > :global(a) {
         height: 33.333333vh;

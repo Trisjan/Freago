@@ -1,0 +1,31 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Stone"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Esse ex velit tempor nisi enim nisi labore aute qui veniam tempor ex officia aliqua amet. Et commodo duis Lorem est occaecat irure nostrud amet irure. Proident pariatur magna dolor sint reprehenderit officia amet."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

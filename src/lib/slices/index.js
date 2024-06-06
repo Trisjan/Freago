@@ -3,8 +3,10 @@
 import Bulletpoints from './Bulletpoints/index.svelte';
 import ContactForm from './ContactForm/index.svelte';
 import Hero from './Hero/index.svelte';
+import HeroText from './HeroText/index.svelte';
 import Image from './Image/index.svelte';
 import ImageCards from './ImageCards/index.svelte';
+import ListTable from './ListTable/index.svelte';
 import Quote from './Quote/index.svelte';
 import Text from './Text/index.svelte';
 import TextWithImage from './TextWithImage/index.svelte';
@@ -14,8 +16,10 @@ export const components = {
 	bulletpoints: Bulletpoints,
 	contact_form: ContactForm,
 	hero: Hero,
+	hero_text: HeroText,
 	image: Image,
 	image_cards: ImageCards,
+	list_table: ListTable,
 	quote: Quote,
 	text: Text,
 	text_with_image: TextWithImage,
