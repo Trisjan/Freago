@@ -24,10 +24,11 @@ export const actions = {
 	default: async ({ request, fetch }) => {
 		const data = await request.formData();
 		const email = data.get('email');
+		const phonenumber = data.get('phonenumber');
 		const message = data.get('message');
 		const access_key = data.get('access_key');
 
-		console.log('Received form data:', { email, message, access_key });
+		console.log('Received form data:', { email, phonenumber, message, access_key });
 
 		const response = await fetch('https://api.web3forms.com/submit', {
 			method: 'POST',
@@ -37,7 +38,8 @@ export const actions = {
 			body: JSON.stringify({
 				access_key,
 				email,
-				message
+				phonenumber,
+				message,
 			})
 		});
 

@@ -39,20 +39,26 @@
 		</section>		
 	{/if}
 	<form method="POST" action="/" on:submit={handleSubmit} use:enhance>
-		<!-- <input type="hidden" name="access_key" value="4d59ea0f-13b8-4119-b6b8-b5cb5c38e663"> -->
-		<section class="group">
-			<label for="email">Email</label>
-			<input required type="email" id="email" name="email" />
-		</section>
-		<section class="group">
-			<label for="message">Message</label>
-			<input required type="text" name="message" id="message" minlength="4" maxlength="500" />
-		</section>
-		<section class="group">
-			<button class:submitted class:loading disabled={submitted}>
-				{loading ? 'Loading' : 'Submit'}
-			</button>
-		</section>
+		<fieldset>
+			<legend>Kom in contact!</legend>
+			<section>
+				<label for="email">Email</label>
+				<input required type="email" id="email" name="email" />
+			</section>
+			<section>
+				<label for="phonenumber">Phonenumber</label>
+				<input required type="tel" name="phonenumber" id="phonenumber" />
+			</section>
+			<section>
+				<label for="message">Message</label>
+				<textarea required name="message" id="message" minlength="2" maxlength="500" />
+			</section>
+			<section>
+				<button class:submitted class:loading disabled={submitted}>
+					{loading ? 'Loading' : 'Submit'}
+				</button>
+			</section>
+		</fieldset>
 	</form>
 </section>
 
@@ -69,6 +75,7 @@
 	section > :global(h1) {
 		font-size: 2.5rem;
 		font-weight: bold;
+		margin-top: 2rem;
 	}
 
 	.popup {
@@ -113,6 +120,13 @@
 		padding: 9px 10px 8px;
 		border-radius: 1rem;
 		box-shadow: 5px 5px 5px #000;
+		padding: 2rem;
+	}
+
+	form legend {
+		font-size: 2rem;
+		font-weight: bold;
+		color: white;
 	}
 
 	form label {
@@ -137,7 +151,7 @@
 
 	label {
 		display: block;
-		margin-bottom: 2rem;
+		margin: 1rem 0 1rem 0;
 	}
 
 	label,
@@ -145,10 +159,12 @@
 		font-weight: bold;
 	}
 
-	input {
+	input,
+	textarea {
 		display: block;
 		width: 100%;
 		resize: none;
+		margin-bottom: 2rem;
 	}
 
 	button {
