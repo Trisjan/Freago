@@ -1,7 +1,6 @@
 <script>
 	import { PrismicLink, PrismicText, PrismicImage } from '@prismicio/svelte';
     import { HamburgerWhite } from '$lib/index';
-	import Bounded from './Bounded.svelte';
 	import { onMount } from 'svelte';
 
 	/** @type {import("@prismicio/client").Content.SettingsDocument} */
@@ -12,7 +11,7 @@
 		const checkWindowSize = () => {
 			const detailsElement = document.querySelector('nav > details');
 			if (detailsElement) {
-				if (window.innerWidth >= 880) {
+				if (window.innerWidth >= 925) {
 					detailsElement.setAttribute('open', '');
 				} else {
 					detailsElement.removeAttribute('open');
@@ -95,6 +94,7 @@ ul{
 }
 
 
+
 li > :global(a){
     text-decoration: none;
     color: #ffffff;
@@ -110,10 +110,11 @@ li > :global(a){
 /* MEDIA QUERIES *//* MEDIA QUERIES *//* MEDIA QUERIES *//* MEDIA QUERIES *//* MEDIA QUERIES *//* MEDIA QUERIES */
 
 
-@media  (min-width: 880px) {
+@media  (min-width: 925px) {
 
 	header{
             padding: 1rem 10vw;
+            z-index: 1;
 	}
 
     summary{
