@@ -4,7 +4,7 @@ import { dev } from '$app/environment';
 
 import { createClient } from '$lib/prismicio';
 
-export const prerender = false;
+export const prerender = true;
 
 export async function load({ fetch }) {
 	const client = createClient({ fetch });

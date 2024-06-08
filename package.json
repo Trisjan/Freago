@@ -40,6 +40,7 @@
 	"dependencies": {
 		"@prismicio/client": "^7.5.0",
 		"@prismicio/svelte": "^1.1.1",
+		"@sveltejs/adapter-vercel": "^5.3.1",
 		"clsx": "^2.0.0"
 	}
 }

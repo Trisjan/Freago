@@ -7,7 +7,7 @@
 
 <section data-slice-type={slice.slice_type} data-slice-variation={slice.variation} class="displayflex">
 	<section class="filter">
-		<div></div>
+		<div>hooiii</div>
 		<div>Hoi</div>
 		<div>Goodbye</div>
 	</section>
@@ -15,18 +15,18 @@
 	{#each slice.primary.list_item as item}
 		<section class="card">
 			<section class="info">
-				<PrismicRichText field={item.title} />
 				<div>
+				<PrismicRichText field={item.title} />
 					<ul class="key_elements">
 						<li><PrismicRichText field={item.stad} /></li>
 						<li><PrismicRichText field={item.functie} /></li>
-						<li>€{item.uurloon} per uur</li>
+						<li>€{item.uurloon}/u</li>
 					</ul>
-					<PrismicRichText field={item.description} />
 				</div>
+				<PrismicRichText field={item.description} />
 				<ul class="links">
-					<li><PrismicLink field={item.page_link}>Website</PrismicLink></li>
 					<li><PrismicLink field={item.website_link}>Meer info</PrismicLink></li>
+					<li><PrismicLink field={item.page_link}>Website</PrismicLink></li>
 				</ul>
 			</section>
 			<PrismicImage field={item.image_logo} />
@@ -48,11 +48,12 @@
 
 .card {
 	display: flex;
+	flex-direction: column-reverse;
 	align-items: center;
 	text-align: center;
 	margin: 3rem 10vw;
-	background-color: #494545;
-	height: 40vh;
+	background-color: var(--accent-color-dark);
+	height: 60vh;
 	max-width: 100%;
 }
 
@@ -60,17 +61,17 @@
 	display: flex;
 	flex-direction: column;
 	text-align: center;
-	width: 60%;
+	width: 100%;
 	max-height: 100%;
 	max-width: 100%;
-	/* padding: 0 10%; */
-	justify-content: space-between; /* Ensure space-between is applied directly */
+	padding: 0 5%;
+	justify-content: space-around; /* Ensure space-between is applied directly */
 	overflow: hidden;
-	height: 100%; /* Ensure it takes full height of the card */
+	height: 50%; /* Ensure it takes full height of the card */
 }
 
 .info :global(h1) {
-	font-size: 2rem;
+	font-size: 1.5rem;
 	font-weight: 800;
 	text-align: start;
 	text-overflow: ellipsis;
@@ -106,15 +107,30 @@
 
 .links :global(a) {
 	text-decoration: none;
-	color: var(--primary-color);
 	font-weight: 700;
+	margin: 0;
+	padding: 0;
+}
+
+.links li:first-child {
+	background-color: var(--primary-color-light);
+	color: white;
+	padding: 1rem 1.5rem;
+	border-radius: 2rem;
+}
+
+.links li:last-child {
+	color: white;
+	padding: 1rem 1.5rem;
+	border: 2px solid var(--primary-color);
+	border-radius: 2rem;
 }
 
 .card :global(img) {
-	width: 40%;
+	width: 100%;
 	max-width: 100%;
 	max-height: 100%;
-	height: 40vh;
+	height: 50%;
 	object-fit: cover;
 }
 
@@ -136,11 +152,12 @@
 		max-width: 100%;
 		width: 100%;
 		height: 60vh;
-		background-color: var(--primary-color);
+		background-color: var(--accent-color);
 	}
 
 	.card {
 		display: flex;
+		flex-direction: row;
 		max-width: 100%;
 		width: 100%;
 		height: 40vh;
@@ -152,8 +169,15 @@
 	}
 
 	.card .info {
-		width: 100%;
+		width: 60%;
+		height: 100%;
+		object-fit: cover;
 		/* padding: 3rem 4rem; */
+	}
+
+	.card :global(img) {
+		width: 40%;
+		height: 100%;
 	}
 
 	.info :global(h1) {
@@ -178,8 +202,7 @@
 		width: 20%;
 		height: 60vh;
 		margin: 0 2rem 0 0;
-		background-color: var(--primary-color);
-		top: 2rem;
+		top: 8rem;
 		position: sticky;
 		width: 20vw;
 		align-self: start;

@@ -12,7 +12,7 @@
 		const checkWindowSize = () => {
 			const detailsElement = document.querySelector('nav > details');
 			if (detailsElement) {
-				if (window.innerWidth >= 850) {
+				if (window.innerWidth >= 880) {
 					detailsElement.setAttribute('open', '');
 				} else {
 					detailsElement.removeAttribute('open');
@@ -63,6 +63,8 @@ header{
         align-items: center;
         padding: 2rem 10vw;  
         background-color: var(--primary-color);
+        position: sticky;
+        top: 0;
 }
 
 nav{
