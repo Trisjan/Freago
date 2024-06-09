@@ -11,28 +11,6 @@ type DetailpageDocumentDataSlicesSlice = TextWithImageSlice | TextSlice | HeroSl
  */
 interface DetailpageDocumentData {
 	/**
-	 * Parrent field in *Detailpage*
-	 *
-	 * - **Field Type**: Content Relationship
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: detailpage.parrent
-	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-	 */
-	parrent: prismic.ContentRelationshipField;
-
-	/**
-	 * Title field in *Detailpage*
-	 *
-	 * - **Field Type**: Rich Text
-	 * - **Placeholder**: *None*
-	 * - **API ID Path**: detailpage.title
-	 * - **Tab**: Main
-	 * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-	 */
-	title: prismic.RichTextField;
-
-	/**
 	 * Slice Zone field in *Detailpage*
 	 *
 	 * - **Field Type**: Slice Zone

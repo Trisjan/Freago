@@ -12,22 +12,6 @@
 				},
 				"type": "UID"
 			},
-			"parrent": {
-				"type": "Link",
-				"config": {
-					"label": "Parrent",
-					"select": "document"
-				}
-			},
-			"title": {
-				"type": "StructuredText",
-				"config": {
-					"label": "Title",
-					"placeholder": "",
-					"allowTargetBlank": true,
-					"multi": "heading1"
-				}
-			},
 			"slices": {
 				"type": "Slices",
 				"fieldset": "Slice Zone",
