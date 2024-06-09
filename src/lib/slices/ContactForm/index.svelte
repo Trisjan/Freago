@@ -53,11 +53,9 @@
 				<label for="message">Message</label>
 				<textarea required name="message" id="message" minlength="2" maxlength="500" />
 			</section>
-			<section>
 				<button class:submitted class:loading disabled={submitted}>
 					{loading ? 'Loading' : 'Submit'}
 				</button>
-			</section>
 		</fieldset>
 	</form>
 </section>
@@ -67,9 +65,8 @@
 	.main {
 		display: flex;
 		flex-direction: column;
-		/* align-items: center; */
 		gap: 3rem;
-		margin: 0 10vw;
+		margin: 0 10vw 5rem 10vw;
 	}
 
 	section > :global(h1) {
@@ -105,10 +102,8 @@
 		color: #fff;
 		border: none;
 		cursor: pointer;
-	}
-
-	.popup button:hover {
-		background-color: hotpink;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	form {
@@ -116,35 +111,36 @@
 		flex-direction: column;
 		gap: 3rem;
 		width: 100%;
-		background: var(--primary-color-light);
+		background: var(--accent-color);
 		padding: 9px 10px 8px;
-		border-radius: 1rem;
-		box-shadow: 5px 5px 5px #000;
 		padding: 2rem;
 	}
 
 	form legend {
 		font-size: 2rem;
 		font-weight: bold;
-		color: white;
+		color: black;
 	}
 
 	form label {
 		font-weight: bold;
-		color: white;
+		color: black;
 	}
 
 	form button {
-		color: #fff;
+		color: white;
+		background-color: var(--primary-color-light);
 	}
 
 	#email:invalid,
-	#message:invalid {
+	#message:invalid,
+	#phonenumber:invalid {
 		outline: #ff0000 solid 2px;
 	}
 
 	#email:valid,
-	#message:valid {
+	#message:valid,
+	#phonenumber:valid {
 		outline: #00ff15 solid 2px;
 	}
 
@@ -168,13 +164,9 @@
 	}
 
 	button {
-		border-radius: 1.5rem;
-		padding: 2rem 3.5rem;
-		margin-left: auto;
-		margin-right: auto;
+		border-radius: 2rem;
+		padding: 1rem 1.5rem;
 		display: block;
-		background: #5f5f5f;
-		box-shadow: #000;
 	}
 
 	button:hover {
@@ -202,7 +194,7 @@
 
 	@media (min-width: 768px) {
 		.main {
-			margin: 0 10vw;
+			margin: 0 10vw 5rem 10vw;
 		}
 
 		.main > :global(h1) {

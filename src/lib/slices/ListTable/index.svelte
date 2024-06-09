@@ -59,7 +59,6 @@
 	  flex-direction: column;
 	  justify-content: space-around;
 	  max-width: 100%;
-	  /* width: 100%; */
 		margin: 1.5rem 10vw;
 		background-color: var(--accent-color);
 	}
@@ -74,7 +73,6 @@
 	  margin: 1rem 1.5rem;
 	  padding: 0.5rem;
 	  width: 85%;
-	  /* max-width: 300px; */
 	  border: 1px solid #ccc;
 	  border-radius: 4px;
 	}
@@ -116,7 +114,6 @@
 	  font-weight: 800;
 	  text-align: start;
 	  text-overflow: ellipsis;
-	  /* white-space: nowrap; */
 	}
   
 	.info :global(p) {
@@ -223,7 +220,6 @@
 		width: 60%;
 		height: 100%;
 		object-fit: cover;
-		/* padding: 3rem 4rem; */
 	  }
   
 	  .card :global(img) {
