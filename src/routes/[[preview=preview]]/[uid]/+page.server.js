@@ -1,20 +1,7 @@
 import { asText } from '@prismicio/client';
 import { createClient } from '$lib/prismicio';
-import { prerendering } from '$app/navigation';
 
 export async function load({ params, url, fetch, cookies }) {
-  // Check if the page is being prerendered
-  if (prerendering) {
-    return {
-      page: null,
-      title: '',
-      meta_description: '',
-      meta_title: '',
-      meta_image: '',
-      searchQuery: ''
-    };
-  }
-
   const client = createClient({ fetch, cookies });
   const searchQuery = url.searchParams.get("search") || "";
 
