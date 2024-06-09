@@ -8,9 +8,17 @@
 		"Main": {
 			"uid": {
 				"config": {
-					"label": "UID"
+					"label": "detailUid",
+					"placeholder": ""
 				},
 				"type": "UID"
+			},
+			"parent": {
+				"type": "Link",
+				"config": {
+					"label": "parent",
+					"select": "document"
+				}
 			},
 			"slices": {
 				"type": "Slices",

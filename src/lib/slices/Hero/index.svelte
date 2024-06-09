@@ -25,7 +25,7 @@
 		/>
 	{/if}
 	<Bounded tag="div" yPadding="lg" class="relative">
-		<div class="grid justify-items-center gap-8">
+		<div class="flex flex-col justify-center items-center gap-8">
 			<div class="max-w-2xl text-center">
 				<PrismicRichText
 					field={slice.primary.text}
