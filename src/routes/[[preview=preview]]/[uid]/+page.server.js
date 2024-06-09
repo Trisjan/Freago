@@ -1,9 +1,15 @@
 import { asText } from '@prismicio/client';
 import { createClient } from '$lib/prismicio';
 
+export const prerender = false; // Disable prerendering for this page
+
 export async function load({ params, url, fetch, cookies }) {
   const client = createClient({ fetch, cookies });
-  const searchQuery = url.searchParams.get("search") || "";
+
+  let searchQuery = "";
+  if (typeof url !== "undefined") {
+    searchQuery = url.searchParams.get("search") || "";
+  }
 
   const page = await client.getByUID('page', params.uid);
 
@@ -38,4 +44,14 @@ export async function load({ params, url, fetch, cookies }) {
     meta_image: page.data.meta_image.url,
     searchQuery
   };
+}
+
+export async function entries() {
+  const client = createClient();
+
+  const pages = await client.getAllByType('page');
+
+  return pages.map((page) => {
+    return { uid: page.uid };
+  });
 }

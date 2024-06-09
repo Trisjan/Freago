@@ -1,18 +1,19 @@
 <script>
 	import { PrismicLink, PrismicImage, PrismicRichText } from "@prismicio/svelte";
-  
+	
 	/** @type {import("@prismicio/client").Content.ListTableSlice} */
 	export let slice;
 	export let searchQuery = "";
   </script>
-  
+	
   <section data-slice-type={slice.slice_type} data-slice-variation={slice.variation} class="displayflex">
 	<section class="filter">
+	  <span>Zoek naar bedrijven</span>
 	  <form method="get">
 		<input
 		  type="text"
 		  name="search"
-		  placeholder="Search titles..."
+		  placeholder="Zoeken..."
 		  value={searchQuery}
 		  class="search-bar"
 		/>
@@ -47,15 +48,6 @@
   
   
   <style>
-	.search-bar {
-	  margin: 1rem;
-	  padding: 0.5rem;
-	  width: 100%;
-	  max-width: 300px;
-	  border: 1px solid #ccc;
-	  border-radius: 4px;
-	}
-  
 	.displayflex {
 	  display: flex;
 	  flex-direction: column;
@@ -63,7 +55,36 @@
 	}
   
 	.filter {
-	  display: none;
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: space-around;
+	  max-width: 100%;
+	  /* width: 100%; */
+		margin: 1.5rem 10vw;
+		background-color: var(--accent-color);
+	}
+
+	.filter span {
+		font-size: 1.3rem;
+		font-weight: 700;
+		margin: 1rem 1.5rem 0 1.5rem;
+	}
+
+	.search-bar {
+	  margin: 1rem 1.5rem;
+	  padding: 0.5rem;
+	  width: 85%;
+	  /* max-width: 300px; */
+	  border: 1px solid #ccc;
+	  border-radius: 4px;
+	}
+
+	button {
+		width: 15%;
+		margin: 1rem;
+		background-color: var(--text-color-dark);
+		color: white;
+		padding: 0.3rem 0;
 	}
   
 	.card {
@@ -167,13 +188,23 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-around;
-		align-items: center;
 		margin: 3rem 10vw;
+		padding: 1rem;
 		max-width: 100%;
 		width: 100%;
-		height: 60vh;
+		max-height:100%;
 		background-color: var(--accent-color);
 	  }
+
+	  .filter form {
+	width: 100%;
+	max-width: 100%;
+	}
+
+	.filter input {
+	width: 100%;
+	max-width: 100%;
+	}
   
 	  .card {
 		display: flex;
@@ -218,14 +249,32 @@
 	  .filter {
 		position: sticky;
 		justify-content: space-around;
-		align-items: center;
 		width: 20%;
-		height: 60vh;
+		max-height: 100%;
 		margin: 0 2rem 0 0;
 		top: 8rem;
 		position: sticky;
 		width: 20vw;
 		align-self: start;
+	  }
+
+	  .filter > form {
+		display: flex;
+		flex-direction: column;
+	  }
+
+	   .filter > span {
+		font-size: 1.3rem;
+		margin: 0 0 1rem 0;
+	  }
+
+	  .search-bar {
+		margin: 0;
+	  }
+
+	  form > button {
+		margin: 1rem 0;
+		width: auto;
 	  }
   
 	  .cards {
