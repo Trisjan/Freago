@@ -3,18 +3,13 @@
 	import * as prismic from '@prismicio/client';
 	import clsx from 'clsx';
 
-	import Bounded from '$lib/components/Bounded.svelte';
-
 	/** @type {import("@prismicio/client").Content.QuoteSlice} */
 	export let slice;
+
+	
 </script>
 
-<Bounded
-	as="section"
-	class="bg-white"
-	data-slice-type={slice.slice_type}
-	data-slice-variation={slice.variation}
->
+<section>
 	{#if prismic.isFilled.richText(slice.primary.quote)}
 		<figure class="grid gap-6">
 			<blockquote>
@@ -36,4 +31,11 @@
 			{/if}
 		</figure>
 	{/if}
-</Bounded>
+</section>
+
+<style>
+	section {
+		padding: 10rem 10vw;
+		background-color: var(--accent-color);
+	}
+</style>

@@ -8,13 +8,14 @@
 	export let slice;
 </script>
 
-<Bounded
-	as="section"
-	class="bg-white leading-relaxed"
-	data-slice-type={slice.slice_type}
-	data-slice-variation={slice.variation}
->
+<section>
 	<div class={clsx(slice.variation === 'twoColumns' && 'md:columns-2 md:gap-6')}>
 		<PrismicRichText field={slice.primary.text} />
 	</div>
-</Bounded>
+</section>
+
+<style>
+	section {
+		margin: 5rem 10vw;
+	}
+</style>

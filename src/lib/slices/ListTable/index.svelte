@@ -49,18 +49,18 @@
   
   <style>
 	.displayflex {
-	  display: flex;
-	  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 	  justify-content: center; /* Center elements horizontally */
 	}
-  
+
 	.filter {
-	  display: flex;
-	  flex-direction: column;
-	  justify-content: space-around;
-	  max-width: 100%;
-		margin: 1.5rem 10vw;
-		background-color: var(--accent-color);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	max-width: 100%;
+	margin: 1.5rem 10vw;
+	background-color: var(--accent-color);
 	}
 
 	.filter span {

@@ -3,11 +3,29 @@
     import { HamburgerWhite } from '$lib/index';
 	import { onMount } from 'svelte';
 
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
 	/** @type {import("@prismicio/client").Content.SettingsDocument} */
 	/** @type {import("@prismicio/client").Content.NavigationDocument} */
 	export let navigation;
 
 	onMount(() => {
+		const tl = gsap.timeline();
+		const duration = 1;
+		
+		tl.from(".Header__link", {
+			duration,
+			opacity: 0
+		})
+		.from("details", {
+			duration,
+			xPercent: 100,
+			rotation: -90,
+			yPercent: 100,
+			ease: 'bounce.out',
+		}, `-=${duration * 0.75}`)
+
 		const checkWindowSize = () => {
 			const detailsElement = document.querySelector('nav > details');
 			if (detailsElement) {
@@ -33,7 +51,7 @@
 </script>
 
 	<header>
-		<PrismicLink field={navigation.data.home_link} class="text-xl font-semibold tracking-tight">
+		<PrismicLink field={navigation.data.home_link} class="Header__link text-xl font-semibold tracking-tight">
 			<PrismicImage field={navigation.data.logo} width="200px" height="100%" />
 		</PrismicLink>
 		<nav>
@@ -64,6 +82,15 @@ header{
         background-color: var(--primary-color);
         position: sticky;
         top: 0;
+}
+
+header > :global(a > img) {
+    pointer-events: none;
+}
+
+header > :global(a) {
+    user-select: none;
+    -webkit-user-drag: none;
 }
 
 nav{
