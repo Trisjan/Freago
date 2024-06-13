@@ -4,7 +4,6 @@
 	import { onMount } from 'svelte';
 
     import { gsap } from "gsap";
-    import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 	/** @type {import("@prismicio/client").Content.SettingsDocument} */
 	/** @type {import("@prismicio/client").Content.NavigationDocument} */
@@ -12,19 +11,19 @@
 
 	onMount(() => {
 		const tl = gsap.timeline();
-		const duration = 1;
+		const duration = 2;
 		
 		tl.from(".Header__link", {
 			duration,
-			opacity: 0
+			opacity: 0,
+            yPercent: -400
 		})
 		.from("details", {
 			duration,
-			xPercent: 100,
-			rotation: -90,
-			yPercent: 100,
-			ease: 'bounce.out',
-		}, `-=${duration * 0.75}`)
+            opacity: 0,
+            xPercent: 300,
+			ease: 'power3.out',
+		}, `-=${duration * 0.3}`)
 
 		const checkWindowSize = () => {
 			const detailsElement = document.querySelector('nav > details');
@@ -39,14 +38,6 @@
 
 		// Run once on mount
 		checkWindowSize();
-
-		// Update when window is resized
-		window.addEventListener('resize', checkWindowSize);
-
-		// Cleanup function
-		return () => {
-			window.removeEventListener('resize', checkWindowSize);
-		};
 	});
 </script>
 
@@ -82,6 +73,7 @@ header{
         background-color: var(--primary-color);
         position: sticky;
         top: 0;
+        overflow: hidden;
 }
 
 header > :global(a > img) {
@@ -109,12 +101,11 @@ summary::-webkit-details-marker {
 ul{
     display: flex;
     flex-direction: column;
-    flex: start;
     list-style: none;
     position: absolute;
     width: 100vw;
     padding: 0.75em 0;
-    top: 15vw;
+    top: 7rem;
     left: 0;
     background: var(--primary-color);
     z-index: 2;
@@ -127,7 +118,7 @@ li > :global(a){
     color: #ffffff;
     display: block;
     padding: 0.5rem 2rem;
-    text-align: right;
+    text-align: center;
     position: relative;
 }
 

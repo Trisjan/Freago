@@ -1,9 +1,27 @@
 <script>
 	import { PrismicLink, PrismicImage, PrismicRichText } from "@prismicio/svelte";
+	import { onMount } from "svelte";
+	import gsap from "gsap";
 	
 	/** @type {import("@prismicio/client").Content.ListTableSlice} */
 	export let slice;
 	export let searchQuery = "";
+	onMount(() => {
+		const tl = gsap.timeline();
+		const duration = 2;
+		
+		tl.from(".Header__link", {
+			duration,
+			opacity: 0,
+            yPercent: -400
+		})
+		.from("details", {
+			duration,
+			xPercent: 100,
+            opacity: 0,
+			ease: 'power3.out',
+		}, `-=${duration * 0.3}`)
+	});
   </script>
 	
   <section data-slice-type={slice.slice_type} data-slice-variation={slice.variation} class="displayflex">
@@ -33,6 +51,8 @@
 			  </ul>
 			</div>
 			<PrismicRichText field={item.description} />
+			<button popovertarget="mypopover">Toggle the popover</button>
+			<div id="mypopover" popover>Popover content</div>
 			<ul class="links">
 			  <li><PrismicLink field={item.website_link}>Meer info</PrismicLink></li>
 			  <li><PrismicLink field={item.page_link}>Website</PrismicLink></li>
@@ -77,12 +97,13 @@
 	  border-radius: 4px;
 	}
 
-	button {
-		width: 15%;
-		margin: 1rem;
+	form > button {
+		width: auto;
+		margin:  0 0 1rem 1.5rem;
 		background-color: var(--text-color-dark);
 		color: white;
-		padding: 0.3rem 0;
+		padding: 0.5rem 0.1rem;
+		border-radius: 16px;
 	}
   
 	.card {
@@ -116,11 +137,9 @@
 	  text-overflow: ellipsis;
 	}
   
-	.info :global(p) {
+	.info > :global(p) {
 	  font-size: 1rem;
-	  font-weight: 400;
-	  line-height: 2rem;
-	  text-align: start;
+		display: none;
 	}
   
 	.key_elements {
@@ -198,9 +217,8 @@
 	max-width: 100%;
 	}
 
-	.filter input {
-	width: 100%;
-	max-width: 100%;
+	form > button {
+		width: 15%;
 	}
   
 	  .card {
@@ -220,21 +238,25 @@
 		width: 60%;
 		height: 100%;
 		object-fit: cover;
-	  }
-  
-	  .card :global(img) {
+	}
+
+	.card :global(img) {
 		width: 40%;
 		height: 100%;
-	  }
-  
-	  .info :global(h1) {
+	}
+
+	.info :global(h1) {
 		font-size: 2rem;
 		line-height: 3rem;
-	  }
-  
-	  .info :global(p) {
+	}
+
+	.info :global(p) {
+	  	display: block;
 		font-size: 1.2rem;
-	  }
+		font-weight: 400;
+		line-height: 2rem;
+		text-align: start;
+	}
 	}
   
 	@media (min-width: 1200px) {
@@ -258,6 +280,10 @@
 		display: flex;
 		flex-direction: column;
 	  }
+		.filter input {
+		width: 100%;
+		max-width: 100%;
+		}
 
 	   .filter > span {
 		font-size: 1.3rem;
@@ -280,10 +306,6 @@
 	  .info :global(h1) {
 		font-size: 2rem;
 		line-height: 3.5rem;
-	  }
-  
-	  .info :global(p) {
-		font-size: 1.2rem;
 	  }
 	}
   </style>
