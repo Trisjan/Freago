@@ -16,7 +16,7 @@
 					<PrismicImage field={item.image} sizes="100vw" class="w-full" />
 				</PrismicLink>
 			{:else}
-				<PrismicImage field={item.image} sizes="100vw" class="w-full" />
+				<PrismicImage field={item.image} sizes="100vw" class="w-full" loading="lazy" />
 			{/if}
 		</div>
 	{/if}

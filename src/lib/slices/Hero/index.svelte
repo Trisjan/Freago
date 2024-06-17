@@ -22,6 +22,7 @@
 			field={slice.primary.backgroundImage}
 			alt=""
 			class="absolute inset-0 h-full w-full pointer-events-none select-none object-cover opacity-40"
+			loading="eager"
 		/>
 	{/if}
 	<Bounded tag="div" yPadding="lg" class="relative">
@@ -37,7 +38,7 @@
 			{#if prismic.isFilled.link(slice.primary.buttonLink)}
 				<PrismicLink
 					field={slice.primary.buttonLink}
-					class="rounded bg-white px-5 py-3 font-medium text-slate-800"
+					class="rounded px-5 py-3 font-medium text-slate-800"
 				>
 					{slice.primary.buttonText || 'Learn More'}
 				</PrismicLink>
@@ -45,3 +46,13 @@
 		</div>
 	</Bounded>
 </section>
+
+<style>
+	div > :global(a) {
+		background-color: var(--primary-color-light);
+		color: white;
+		padding: 1rem 1.5rem;
+		border-radius: 2rem;
+		position: relative;
+	}
+</style>

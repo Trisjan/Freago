@@ -43,7 +43,7 @@
 
 	<header>
 		<PrismicLink field={navigation.data.home_link} class="Header__link text-xl font-semibold tracking-tight">
-			<PrismicImage field={navigation.data.logo} width="200px" height="100%" />
+			<PrismicImage field={navigation.data.logo} width="200px" height="100%"/>
 		</PrismicLink>
 		<nav>
 			<details open>
@@ -108,7 +108,7 @@ ul{
     top: 7rem;
     left: 0;
     background: var(--primary-color);
-    z-index: 2;
+    z-index: 999;
 }
 
 

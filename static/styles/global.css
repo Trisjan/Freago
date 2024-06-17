@@ -1,18 +1,24 @@
 :root {
     --transition-duration: 0.3s;
+    
     --primary-color: #680686;
     --primary-color-light: #9d4edd;
     --primary-color-dark: #3b003b;
+
     --secondary-color: #6b6565;
     --secondary-color-light: #D9D9D9;
     --secondary-color-dark: #3f3a3a;
+
     --accent-color: #A1CDF1;
     --accent-color-light: #D6EAF8;
     --accent-color-dark: #5DADE2;
+
     --background-color: #f5f5f5;
+
     --text-color: #333;
     --text-color-light: #666;
     --text-color-dark: #000;
+
     --primary-font-family: "Poppins", sans-serif;
 }
 

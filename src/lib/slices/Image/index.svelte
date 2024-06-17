@@ -20,7 +20,7 @@
 >
 	{#if prismic.isFilled.image(slice.primary.image)}
 		<div class="bg-gray-100">
-			<PrismicImage field={slice.primary.image} sizes="100vw" class="w-full" />
+			<PrismicImage field={slice.primary.image} sizes="100vw" class="w-full" loading="lazy"/>
 		</div>
 	{/if}
 </Bounded>

@@ -1,27 +1,9 @@
 <script>
 	import { PrismicLink, PrismicImage, PrismicRichText } from "@prismicio/svelte";
-	import { onMount } from "svelte";
-	import gsap from "gsap";
 	
 	/** @type {import("@prismicio/client").Content.ListTableSlice} */
 	export let slice;
 	export let searchQuery = "";
-	onMount(() => {
-		const tl = gsap.timeline();
-		const duration = 2;
-		
-		tl.from(".Header__link", {
-			duration,
-			opacity: 0,
-            yPercent: -400
-		})
-		.from("details", {
-			duration,
-			xPercent: 100,
-            opacity: 0,
-			ease: 'power3.out',
-		}, `-=${duration * 0.3}`)
-	});
   </script>
 	
   <section data-slice-type={slice.slice_type} data-slice-variation={slice.variation} class="displayflex">
@@ -51,14 +33,17 @@
 			  </ul>
 			</div>
 			<PrismicRichText field={item.description} />
-			<button popovertarget="mypopover">Toggle the popover</button>
-			<div id="mypopover" popover>Popover content</div>
+			<button popovertarget="description" popovertargetaction="toggle">Beschrijving...</button>
+			<div class="description" id="description" popover>
+				<PrismicRichText field={item.description} />
+				<PrismicRichText field={item.title} />
+			</div>
 			<ul class="links">
-			  <li><PrismicLink field={item.website_link}>Meer info</PrismicLink></li>
+			  <li><PrismicLink field={item.website_link}>Soliciteer</PrismicLink></li>
 			  <li><PrismicLink field={item.page_link}>Website</PrismicLink></li>
 			</ul>
 		  </section>
-		  <PrismicImage field={item.image_logo} />
+		  <PrismicImage field={item.image_logo} loading="lazy" />
 		</section>
 	  {/each}
 	</section>
@@ -102,8 +87,9 @@
 		margin:  0 0 1rem 1.5rem;
 		background-color: var(--text-color-dark);
 		color: white;
-		padding: 0.5rem 0.1rem;
+		padding: 0.5rem 0.8rem;
 		border-radius: 16px;
+		font-weight: 500;
 	}
   
 	.card {
@@ -135,6 +121,32 @@
 	  font-weight: 800;
 	  text-align: start;
 	  text-overflow: ellipsis;
+	}
+
+	.info > button {
+		font-weight: bold;
+		width: min-content;
+		text-decoration: underline;
+	}
+
+	.description[popover] {
+		margin: auto;
+		padding: 2rem;
+		background-color: var(--accent-color);
+	}
+
+	.description[popover]::backdrop {
+		background: rgba(0, 0, 0, 0.5); /* Darken backdrop */
+	}
+
+	.description[popover] > :global(h1) {
+		font-style: italic ;
+		font-size: 1em;
+		padding-top: 0.5em;
+	}
+
+	.description[popover] > :global(h1)::before {
+		content: "- " ;
 	}
   
 	.info > :global(p) {
@@ -257,6 +269,10 @@
 		line-height: 2rem;
 		text-align: start;
 	}
+
+	.info > button {
+		display: none;
+	  }
 	}
   
 	@media (min-width: 1200px) {

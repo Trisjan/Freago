@@ -9,9 +9,7 @@
 	export let slice;
 </script>
 
-<Bounded
-	as="section"
-	class="bg-white"
+<section
 	data-slice-type={slice.slice_type}
 	data-slice-variation={slice.variation}
 >
@@ -22,9 +20,15 @@
 		<div>
 			{#if prismic.isFilled.image(slice.primary.image)}
 				<div class="bg-gray-100">
-					<PrismicImage field={slice.primary.image} sizes="100vw" class="w-full" />
+					<PrismicImage field={slice.primary.image} sizes="100vw" class="w-full" loading="lazy" />
 				</div>
 			{/if}
 		</div>
 	</div>
-</Bounded>
+</section>
+
+<style>
+	section {
+		margin: 5rem 10vw;
+	}
+</style>
