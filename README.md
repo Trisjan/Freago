@@ -1,7 +1,7 @@
 # Freago "Be free and go!"
 Dit project is in opdracht voor Freago.
 
-![image](https://github.com/Trisjan/Freago/assets/74552944/9e9d9653-4f0a-4863-953b-0c2d9187ee49)
+![image](https://github.com/Trisjan/Freago/assets/74552944/04a40b4a-9af7-45a8-9e0f-aeafd30ba12a)
 
 &nbsp;
 
