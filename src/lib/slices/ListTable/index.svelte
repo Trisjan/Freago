@@ -39,11 +39,11 @@
 				<PrismicRichText field={item.title} />
 			</div>
 			<ul class="links">
-			  <li><PrismicLink field={item.website_link}>Soliciteer</PrismicLink></li>
-			  <li><PrismicLink field={item.page_link}>Website</PrismicLink></li>
+			  <li><PrismicLink field={item.website_link} aria-label="Ga verder naar de detailpagina">Soliciteer</PrismicLink></li>
+			  <li><PrismicLink field={item.page_link} aria-label="Ga verder naar de website van {item.title}">Website</PrismicLink></li>
 			</ul>
 		  </section>
-		  <PrismicImage field={item.image_logo} loading="lazy" />
+		  <PrismicImage field={item.image_logo} loading="lazy" alt="foto van logo"/>
 		</section>
 	  {/each}
 	</section>

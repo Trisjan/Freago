@@ -42,8 +42,8 @@
 </script>
 
 	<header>
-		<PrismicLink field={navigation.data.home_link} class="Header__link text-xl font-semibold tracking-tight">
-			<PrismicImage field={navigation.data.logo} width="200px" height="100%"/>
+		<PrismicLink field={navigation.data.home_link} class="Header__link text-xl font-semibold tracking-tight" aria-label="terug naar home">
+			<PrismicImage field={navigation.data.logo} width="200px" height="100%" alt="logo"/>
 		</PrismicLink>
 		<nav>
 			<details open>
@@ -53,7 +53,7 @@
 				<ul class="flex flex-wrap gap-6 md:gap-10">
 					{#each navigation.data?.links as item}
 						<li class="font-semibold tracking-tight text-slate-800">
-							<PrismicLink field={item.link}>
+							<PrismicLink field={item.link} aria-label="link naar {item.label}">
 								<PrismicText field={item.label} />
 							</PrismicLink>
 						</li>

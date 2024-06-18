@@ -39,6 +39,7 @@
 				<PrismicLink
 					field={slice.primary.buttonLink}
 					class="rounded px-5 py-3 font-medium text-slate-800"
+					aria-label={slice.primary.buttonText || 'Learn More'}
 				>
 					{slice.primary.buttonText || 'Learn More'}
 				</PrismicLink>

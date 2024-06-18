@@ -5,13 +5,13 @@
 </script>
 
 <section data-slice-type={slice.slice_type} data-slice-variation={slice.variation} class="grid">
-	<PrismicLink field={slice.primary.top_left}>
+	<PrismicLink field={slice.primary.top_left} aria-label="Ga verder naar de {slice.primary.top_left_text} pagina">
 		<PrismicRichText field={slice.primary.top_left_text} />
 	</PrismicLink>
-	<PrismicLink field={slice.primary.top_right}>
+	<PrismicLink field={slice.primary.top_right} aria-label="Ga verder naar de {slice.primary.top_right_text} pagina">
 		<PrismicRichText field={slice.primary.top_right_text} />
 	</PrismicLink>
-	<PrismicLink field={slice.primary.bottom}>
+	<PrismicLink field={slice.primary.bottom} aria-label="Ga verder naar de {slice.primary.bottom_text} pagina">
 		<PrismicRichText field={slice.primary.bottom_text} />
 	</PrismicLink>
 </section>
